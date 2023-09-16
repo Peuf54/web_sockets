@@ -12,7 +12,8 @@ consumer.subscriptions.create("ChannelTestChannel", {
 
   received(data) {
     // Called when there's incoming data on the websocket for this channel
-    console.log("Received data: ", data);
+    const audio = new Audio('messages_alert.mp3');
+    audio.play();
     document.getElementById('messages').insertAdjacentHTML('afterbegin', `<p><strong>${data.ip_address} :</strong> ${data.message}</p>`)
   }
 });
