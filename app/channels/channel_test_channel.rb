@@ -7,13 +7,8 @@ class ChannelTestChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def send_message(data)
-    ActionCable.server.broadcast("my_channel", message: data["message"])
-  end
-
   def receive(data)
-    ip_address = connection.env['REMOTE_ADDR']
-    data["ip_address"] = ip_address
-    ActionCable.server.broadcast("channel_test", data)
+    ActionCable.server.broadcast("channel_test", data.merge(ip_address: ip_address))
   end
+  
 end
