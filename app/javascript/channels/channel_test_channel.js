@@ -18,8 +18,10 @@ consumer.subscriptions.create("ChannelTestChannel", {
   received(data) {
     // Called when there's incoming data on the websocket for this channel
     if (data.client_id !== clientId) {
-      const audio = new Audio('messages_alert.mp3');
-      audio.play();
+      if (data.message) {
+        const audio = new Audio('messages_alert.mp3');
+        audio.play();
+      }
 
       if (data.status === 'writing') {
         writingStatus.innerHTML = `<p id="writing-status"><strong>${data.ip_address} is writing...</p>`;
