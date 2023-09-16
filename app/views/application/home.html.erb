@@ -1,6 +1,39 @@
-<input type="text" id="input">
-<button id="my-button">Send Message</button>
+<div class="container">
+    <p id="writing-status"></p>
+    <div class="send">
+        <input type="text" id="input">
+        <button id="my-button">Send Message</button>
+    </div>
+</div>
 
 <div id="messages">
 
 </div>
+
+<style>
+    .container {
+        width: 300px;
+        margin: 35px auto;
+    }
+
+    #writing-status {
+        position: fixed;
+        top: 60px;
+    }
+
+    .send {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    #messages {
+        padding: 30px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: birder-box;
+    }
+</style>
