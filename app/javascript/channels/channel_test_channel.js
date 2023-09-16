@@ -56,3 +56,10 @@ input.addEventListener('input', () => {
     consumer.subscriptions.subscriptions[0].send({ status: 'stopped_writing', client_id: clientId });
   }, 1500);
 });
+
+input.addEventListener('keyup', (event) => {
+  if (event.key === 'Enter') {
+    sendMessage(input.value);
+    input.value = '';
+  }
+});
